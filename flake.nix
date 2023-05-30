@@ -64,7 +64,7 @@
           pythoneda-git-repositories-application =
             pythonPackages.buildPythonPackage rec {
               pname = "pythoneda-git-repositories-application";
-              version = "0.0.1a1";
+              version = "0.0.1a2";
               src = ./.;
               format = "pyproject";
 
@@ -72,7 +72,6 @@
 
               propagatedBuildInputs = with pythonPackages; [
                 pythoneda-application-layer.packages.${system}.pythoneda-application-layer
-                pythoneda-infrastructure-layer.packages.${system}.pythoneda-infrastructure-layer
                 pythoneda-git-repositories.packages.${system}.pythoneda-git-repositories
                 pythoneda-git-repositories-infrastructure.packages.${system}.pythoneda-git-repositories-infrastructure
               ];
