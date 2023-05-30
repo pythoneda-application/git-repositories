@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pythoneda-git-repositories-application"
-version = "0.0.1a2"
+version = "0.0.1a3"
 description = "Application layer of PythonEDA Git Repositories package"
 authors = ["rydnr <github@acm-sl.org>"]
 readme = "README.md"
@@ -8,7 +8,7 @@ packages = [{include = "PythonEDAGitRepositoriesApplication"}]
 
 [tool.poetry.dependencies]
 python = "^3.7"
-pythoneda-application-layer = "^0.0.1a2"
+pythoneda-application-layer = "^0.0.1a3"
 pythoneda-git-repositories = "^0.0.1a3"
 pythoneda-git-repositories-infrastructure = "^0.0.1a3"
 

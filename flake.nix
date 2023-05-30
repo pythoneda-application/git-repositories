@@ -23,7 +23,7 @@
       inputs.poetry2nix.follows = "poetry2nix";
     };
     pythoneda-application-layer = {
-      url = "github:rydnr/pythoneda-application-layer/0.0.1a2";
+      url = "github:rydnr/pythoneda-application-layer/0.0.1a3";
       inputs.pythoneda.follows = "pythoneda";
       inputs.pythoneda-infrastructure-layer.follows =
         "pythoneda-infrastructure-layer";
@@ -64,7 +64,7 @@
           pythoneda-git-repositories-application =
             pythonPackages.buildPythonPackage rec {
               pname = "pythoneda-git-repositories-application";
-              version = "0.0.1a2";
+              version = "0.0.1a3";
               src = ./.;
               format = "pyproject";
 
