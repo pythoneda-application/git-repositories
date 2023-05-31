@@ -1,16 +1,17 @@
 [tool.poetry]
 name = "pythoneda-application-git-repositories"
-version = "0.0.1a4"
+version = "0.0.1a5"
 description = "Application layer of PythonEDA Git Repositories package"
 authors = ["rydnr <github@acm-sl.org>"]
 readme = "README.md"
+homepage = "https://github.com/pythoneda-application/git-repositories"
 packages = [{include = "PythonEDAApplicationGitRepositories"}]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 pythoneda-application-base = "^0.0.1a5"
 pythoneda-git-repositories = "^0.0.1a4"
-pythoneda-infrastructure-git-repositories = "^0.0.1a6"
+pythoneda-infrastructure-git-repositories = "^0.0.1a7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.0"

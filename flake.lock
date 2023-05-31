@@ -198,16 +198,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1685549868,
-        "narHash": "sha256-5xtA7NwbQ+r7xH08mEauoPyMVej+9kQ3YiYNELPQ56g=",
+        "lastModified": 1685557597,
+        "narHash": "sha256-pnz+i+25xgST2MgkIgaLDOfTX0yD0HFMcGPMPAR5+xw=",
         "owner": "pythoneda-infrastructure",
         "repo": "git-repositories",
-        "rev": "8e37e7e55a3f242949b2076b583c4060f3b0379a",
+        "rev": "13aa4515c77d60dae9ee446d8b49ad91f7f6b984",
         "type": "github"
       },
       "original": {
         "owner": "pythoneda-infrastructure",
-        "ref": "0.0.1a6",
+        "ref": "0.0.1a7",
         "repo": "git-repositories",
         "type": "github"
       }
