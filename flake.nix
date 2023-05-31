@@ -10,39 +10,39 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     pythoneda = {
-      url = "github:rydnr/pythoneda/0.0.1a5";
+      url = "github:pythoneda/base/0.0.1a7";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.poetry2nix.follows = "poetry2nix";
     };
-    pythoneda-infrastructure-layer = {
-      url = "github:rydnr/pythoneda-infrastructure-layer/0.0.1a2";
+    pythoneda-infrastructure-base = {
+      url = "github:pythoneda-infrastructure/base/0.0.1a5";
       inputs.pythoneda.follows = "pythoneda";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.poetry2nix.follows = "poetry2nix";
     };
-    pythoneda-application-layer = {
-      url = "github:rydnr/pythoneda-application-layer/0.0.1a3";
+    pythoneda-application-base = {
+      url = "github:pythoneda-application/base/0.0.1a5";
       inputs.pythoneda.follows = "pythoneda";
-      inputs.pythoneda-infrastructure-layer.follows =
-        "pythoneda-infrastructure-layer";
+      inputs.pythoneda-infrastructure-base.follows =
+        "pythoneda-infrastructure-base";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.poetry2nix.follows = "poetry2nix";
     };
     pythoneda-git-repositories = {
-      url = "github:rydnr/pythoneda-git-repositories/0.0.1a3";
+      url = "github:pythoneda/git-repositories/0.0.1a4";
       inputs.pythoneda.follows = "pythoneda";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
       inputs.poetry2nix.follows = "poetry2nix";
     };
-    pythoneda-git-repositories-infrastructure = {
-      url = "github:rydnr/pythoneda-git-repositories-infrastructure/0.0.1a3";
+    pythoneda-infrastructure-git-repositories = {
+      url = "github:pythoneda-infrastructure/git-repositories/0.0.1a6";
       inputs.pythoneda.follows = "pythoneda";
-      inputs.pythoneda-infrastructure-layer.follows =
-        "pythoneda-infrastructure-layer";
+      inputs.pythoneda-infrastructure-base.follows =
+        "pythoneda-infrastructure-base";
       inputs.pythoneda-git-repositories.follows = "pythoneda-git-repositories";
       inputs.nixos.follows = "nixos";
       inputs.flake-utils.follows = "flake-utils";
@@ -58,22 +58,23 @@
         pythonPackages = python.pkgs;
         description = "Application layer of PythonEDA Git Repositories";
         license = pkgs.lib.licenses.gpl3;
+        homepage = "https://github.com/pythoneda-application/git-repositories";
         maintainers = with pkgs.lib.maintainers; [ ];
       in rec {
         packages = {
-          pythoneda-git-repositories-application =
+          pythoneda-application-git-repositories =
             pythonPackages.buildPythonPackage rec {
-              pname = "pythoneda-git-repositories-application";
-              version = "0.0.1a3";
+              pname = "pythoneda-application-git-repositories";
+              version = "0.0.1a4";
               src = ./.;
               format = "pyproject";
 
               nativeBuildInputs = [ pkgs.poetry ];
 
               propagatedBuildInputs = with pythonPackages; [
-                pythoneda-application-layer.packages.${system}.pythoneda-application-layer
+                pythoneda-application-base.packages.${system}.pythoneda-application-base
                 pythoneda-git-repositories.packages.${system}.pythoneda-git-repositories
-                pythoneda-git-repositories-infrastructure.packages.${system}.pythoneda-git-repositories-infrastructure
+                pythoneda-infrastructure-git-repositories.packages.${system}.pythoneda-infrastructure-git-repositories
               ];
 
               checkInputs = with pythonPackages; [ pytest ];
@@ -84,7 +85,7 @@
                 inherit description license homepage maintainers;
               };
             };
-          default = packages.pythoneda-git-repositories-application;
+          default = packages.pythoneda-application-git-repositories;
           meta = with lib; {
             inherit description license homepage maintainers;
           };
